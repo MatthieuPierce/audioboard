@@ -7,8 +7,70 @@ const baseState = {
   error: ''
 }
 
+const tempBaseState = {
+  activePad: '',
+  activeDescription: '',
+  loading: false,
+  error: '',
+  pads: [
+    {
+      "keyId": "q",
+      "audioSrc": "q-audio.mkv",
+      "isPlaying": false
+    },
+    {
+      "keyId": "w",
+      "audioSrc": "w-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "e",
+      "audioSrc": "e-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "a",
+      "audioSrc": "a-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "s",
+      "audioSrc": "s-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "d",
+      "audioSrc": "d-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "z",
+      "audioSrc": "z-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "x",
+      "audioSrc": "x-audio.mkv",
+      "isPlaying": false
+  
+    },
+    {
+      "keyId": "c",
+      "audioSrc": "c-audio.mkv",
+      "isPlaying": false
+  
+    }
+  ]
+}
 
-const rootReducer = (state = baseState, action) => {
+
+const rootReducer = (state = tempBaseState, action) => {
   switch (action.type) {
     case FETCH_JSON_REQUEST:
       return {
@@ -32,14 +94,16 @@ const rootReducer = (state = baseState, action) => {
       return ({
         ...state,
         activePad: action.padId,
+        activeDescription: state.pads.find(pad => pad.padId.toUpperCase === action.padId.toUpperCase).description,
         pads: state.pads.map(e => {
-          (e.padId.toUpperCase === action.padId.toUppercase)
-          ? ({
-              keyId: e.padId,
-              audioSrc: e.audioSrc,
+          if (e.padId.toUpperCase === action.padId.toUppercase) {
+            return {
+              ...e,
               isPlaying: true
-            })
-          : e;
+            }
+          } else {
+            return e;
+          }
         }
         ),
       })

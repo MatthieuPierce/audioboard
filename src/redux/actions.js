@@ -27,17 +27,17 @@ export const fetchJsonFailure = (error) => {
   }
 }
 
-export const fetchPads = () => {
-  dispatch(fetchJsonRequest());
-  return function () {
-    fetch('./pads.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => response.json)
-    .then(data => dispatch(fetchJsonSuccess(data)))
-    .catch(error => dispatch(fetchJsonFailure(error)))
-  }
-}
+// export const fetchPads = () => {
+//   dispatch(fetchJsonRequest());
+//   return function () {
+//     fetch('./pads.json', {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//       }
+//     })
+//     .then(response => response.json)
+//     .then(data => dispatch(fetchJsonSuccess(data)))
+//     .catch(error => dispatch(fetchJsonFailure(error)))
+//   }
+// }

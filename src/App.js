@@ -15,22 +15,4 @@ function App() {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    activePad: state.activePad,
-    pads: state.pads,
-    loading: state.loading,
-    error: state.error
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    playPad: function() {
-      dispatch(playPad())
-    }
-  }
-}
-
-
 export default App;

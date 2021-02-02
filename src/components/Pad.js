@@ -1,7 +1,7 @@
 import React from 'react';
 import { playPad } from '../redux/actions';
 import { connect } from 'react-redux';
-
+import './Pad.css'
 
 
 class Pad extends React.Component {
@@ -14,31 +14,44 @@ class Pad extends React.Component {
   }
 
   handlePlay = () => {
+    // actually play the audio
+    //
+
+    // dispatch playPad action
     playPad(this.props.padId);
   } 
 
   render() {
     return (
-      <div>
-        <header>Pad Title</header>
-        <div className="drum-pad"
-          onClick={this.handlePlay}
-          >
-          <audio src={this.props.audioSrc} className="clip" id={this.props.padId}>
-          </audio>
+      <div 
+        className="drum-pad"
+        onClick={this.handlePlay}>
 
-          {/* When I click on a .drum-pad element, the audio clip contained in its child audio element should be triggered */}
+        <audio 
+          src={this.props.audioSrc} 
+          className="clip" 
+          id={this.props.padId}>
+        </audio>
+        <header>
+          {this.props.padId}
+        </header>
 
-          {/* When I press the trigger key associated with each .drum-pad, the audio clip contained in its child audio element should be triggered (e.g. pressing the Q key should trigger the drum pad which contains the string "Q", pressing the W key should trigger the drum pad which contains the string "W", etc.). */}
+        {/* When I click on a .drum-pad element, the audio clip contained in its child audio element should be triggered */}
 
-          {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
+        {/* When I press the trigger key associated with each .drum-pad, the audio clip contained in its child audio element should be triggered (e.g. pressing the Q key should trigger the drum pad which contains the string "Q", pressing the W key should trigger the drum pad which contains the string "W", etc.). */}
+
+        {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
+
+        {/* PAD COMPONENTS REQS:  
+        * 9 clickable drum pad elements
+        * each with a class name of drum-pad
+        * a unique id that describes the audio clip the drum pad will be set up to trigger
+        * inner text that corresponds to one of the following keys on the keyboard: Q, W, E, A, S, D, Z, X, C. 
+        * The drum pads MUST be in this order.
+      */}
+        {/* <p>I'm playing!</p>
+        <p>I'm not playing!</p> */}
         </div>
-        <p>
-          Supplementary text for this particular pad <code> and perhaps code</code>.
-        </p>
-        <p>I'm playing!</p>
-        <p>I'm not playing!</p>
-      </div>
     )
 
   }

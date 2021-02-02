@@ -2,54 +2,63 @@
   {
     "keyId": "q",
     "audioSrc": "q-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
   },
   {
     "keyId": "w",
     "audioSrc": "w-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "e",
     "audioSrc": "e-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "a",
     "audioSrc": "a-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "s",
     "audioSrc": "s-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "d",
     "audioSrc": "d-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "z",
     "audioSrc": "z-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "x",
     "audioSrc": "x-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   },
   {
     "keyId": "c",
     "audioSrc": "c-audio.mkv",
-    "isPlaying": false
+    "isPlaying": false,
+    "description": "none for now"
 
   }
 ]

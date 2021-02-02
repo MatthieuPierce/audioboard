@@ -1,0 +1,10 @@
+.drum-pad {
+  padding: 50px;
+  /* height: 100px; */
+  background-color: red;
+}
+
+.drum-pad header {
+  font-size: x-large;
+
+}

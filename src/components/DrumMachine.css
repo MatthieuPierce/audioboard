@@ -1,0 +1,23 @@
+#drum-machine-container {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */  
+}
+
+#drum-machine {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 0 1rem;
+  /* place-items: center;
+  place-content: center; */
+}
+
+#display {
+  background-color: hsla(0, 45%, 35%, 1);
+  grid-column: 1 / -1;
+  min-height: 10vh; 
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
