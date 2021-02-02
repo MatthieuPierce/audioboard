@@ -1,6 +1,5 @@
 import React from 'react';
 import Pad from './Pad'
-import { playPad } from '../redux/actions'
 import { connect } from 'react-redux';
 
 
@@ -55,13 +54,14 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    playPad: function() {
-      dispatch(playPad())
-    }
-  }
-}
+// (Migrated to Pad component)
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     playPad: function() {
+//       dispatch(playPad())
+//     }
+//   }
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DrumMachine);
+export default connect(mapStateToProps)(DrumMachine);

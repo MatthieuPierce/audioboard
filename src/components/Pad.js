@@ -1,5 +1,7 @@
 import React from 'react';
 import { playPad } from '../redux/actions';
+import { connect } from 'react-redux';
+
 
 
 class Pad extends React.Component {
@@ -52,9 +54,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    playPad: function() {
-      dispatch(playPad())
-    }
+    playPad: () => dispatch(playPad())
   }
 }
 
