@@ -27,9 +27,16 @@ export const fetchJsonFailure = (error) => {
   }
 }
 
-export const fetchJson = () => {
+export const fetchPads = () => {
   return function () {
-
+    fetch('./pads.json', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json)
+    .then(data => fetchJsonSuccess(data))
 
   }
 }

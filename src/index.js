@@ -4,10 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import rootReducer from './redux/rootReducer.js'
 import store from './redux/store' ;
 
 ReactDOM.render(
