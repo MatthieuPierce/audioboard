@@ -1,61 +1,61 @@
 [
   {
-    "keyId": "q",
+    "keyId": "Q",
     "audioSrc": "q-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
   },
   {
-    "keyId": "w",
+    "keyId": "W",
     "audioSrc": "w-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "e",
+    "keyId": "E",
     "audioSrc": "e-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "a",
+    "keyId": "A",
     "audioSrc": "a-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "s",
+    "keyId": "S",
     "audioSrc": "s-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "d",
+    "keyId": "D",
     "audioSrc": "d-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "z",
+    "keyId": "Z",
     "audioSrc": "z-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "x",
+    "keyId": "X",
     "audioSrc": "x-audio.mkv",
     "isPlaying": false,
     "description": "none for now"
 
   },
   {
-    "keyId": "c",
+    "keyId": "C",
     "audioSrc": "c-audio.mkv",
     "isPlaying": false,
     "description": "none for now"

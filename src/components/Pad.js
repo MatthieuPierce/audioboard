@@ -8,16 +8,23 @@ class Pad extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false
+      isPlaying: false,
+      bgColor: ''
     }
+    this.audioRef = React.createRef();
     this.handlePlay = this.handlePlay.bind(this);
   }
 
   handlePlay = () => {
+    //click logging
+    console.log(`clicked on ${this.props.padId}`)
+    //inform local state isPlaying
+    this.setState({
+      isPlaying: true
+    })
     // actually play the audio
-    //
-
-    // dispatch playPad action
+    this.audioRef.current.play();
+    // dispatch playPad action (to inform store/global state)
     playPad(this.props.padId);
   } 
 
@@ -27,10 +34,13 @@ class Pad extends React.Component {
         className="drum-pad"
         onClick={this.handlePlay}>
 
-        <audio 
-          src={this.props.audioSrc} 
+        <audio
           className="clip" 
-          id={this.props.padId}>
+          id={this.props.padId}
+          preload="auto"
+          ref={this.audioRef}
+          src={this.props.audioSrc} 
+          >
         </audio>
         <header>
           {this.props.padId}

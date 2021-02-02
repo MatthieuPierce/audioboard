@@ -1,6 +1,7 @@
 body {
   --main-text-color: #EEEEEE;
   --main-bg-color: #557599;
+  --secondary-bg-color: hsla(290, 50%, 35%, 0.75);
 
 
   margin: 0;

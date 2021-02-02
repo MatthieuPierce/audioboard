@@ -1,7 +1,13 @@
 .drum-pad {
+  border-radius: 0.5rem;
+  box-sizing: border-box;
   padding: 50px;
-  /* height: 100px; */
-  background-color: red;
+  min-height: 100px;
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
 }
 
 .drum-pad header {
