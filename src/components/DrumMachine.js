@@ -32,9 +32,8 @@ class DrumMachine extends React.Component {
             let max = Math.floor(360);
             let randomHue = Math.floor(
               Math.random() * (max - min + 1) + min);
-            console.log(`randomHue is ${randomHue}`);
             let padStyle = {
-              background: 'hsla(' + randomHue +', 60%, 45%, 1)'
+              background: 'hsla(' + randomHue +', 65%, 45%, 1)'
             };
             return (
             <Pad padId={pad.keyId} audioSrc={pad.audioSrc} key={pad.keyId} padStyle={padStyle}/>

@@ -9,7 +9,7 @@ const baseState = {
 
 const tempBaseState = {
   activePad: '',
-  activeDescription: '',
+  activeDescription: 'starting description',
   loading: false,
   error: '',
   pads: [
@@ -103,9 +103,9 @@ const rootReducer = (state = tempBaseState, action) => {
       return ({
         ...state,
         activePad: action.padId,
-        activeDescription: state.pads.find(pad => pad.padId.toUpperCase === action.padId.toUpperCase).description,
+        activeDescription: state.pads.find(pad => pad["keyId"] === action.padId).description,
         pads: state.pads.map(e => {
-          if (e.padId.toUpperCase === action.padId.toUppercase) {
+          if (e.padId === action.padId) {
             return {
               ...e,
               isPlaying: true
@@ -114,7 +114,7 @@ const rootReducer = (state = tempBaseState, action) => {
             return e;
           }
         }
-        ),
+        )
       })
     default:
       return state;

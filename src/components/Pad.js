@@ -22,10 +22,11 @@ class Pad extends React.Component {
     this.setState({
       isPlaying: true
     })
-    // actually play the audio
-    this.audioRef.current.play();
     // dispatch playPad action (to inform store/global state)
     playPad(this.props.padId);
+    // actually play the audio
+    this.audioRef.current.play();
+    
   } 
 
   render() {
