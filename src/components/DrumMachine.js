@@ -27,14 +27,25 @@ class DrumMachine extends React.Component {
           supply each Pad with their own padId 
           AND supply audioSrc as props
           (alternately, leave off audioSrc, and individual pad picks it up from Pad's individual mapStateToProps access to state.pads) */}
-          {this.props.pads.map(pad => (
-            <Pad padId={pad.keyId} audioSrc={pad.audioSrc}/>
-          ))
-          }
+          {this.props.pads.map(pad => {
+            let min = Math.ceil(0);
+            let max = Math.floor(360);
+            let randomHue = Math.floor(
+              Math.random() * (max - min + 1) + min);
+            console.log(`randomHue is ${randomHue}`);
+            let padStyle = {
+              background: 'hsla(' + randomHue +', 60%, 45%, 1)'
+            };
+            return (
+            <Pad padId={pad.keyId} audioSrc={pad.audioSrc} key={pad.keyId} padStyle={padStyle}/>
+          )
+          })}
           
 
           
-          <div id="display">Display Here
+          <div id="display">
+            Display Last-Played Description Here: 
+            {this.props.activeDescription}
             {/* String describing associated audio clip for currently-triggered pad */}
             {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
           </div>

@@ -32,7 +32,9 @@ class Pad extends React.Component {
     return (
       <div 
         className="drum-pad"
-        onClick={this.handlePlay}>
+        onClick={this.handlePlay}
+        style={this.props.padStyle}
+        >
 
         <audio
           className="clip" 

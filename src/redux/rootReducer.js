@@ -14,56 +14,65 @@ const tempBaseState = {
   error: '',
   pads: [
     {
-      "keyId": "q",
-      "audioSrc": "q-audio.mkv",
-      "isPlaying": false
+      "keyId": "Q",
+      "audioSrc": "./q-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
     },
     {
-      "keyId": "w",
-      "audioSrc": "w-audio.mkv",
-      "isPlaying": false
+      "keyId": "W",
+      "audioSrc": "./w-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "e",
-      "audioSrc": "e-audio.mkv",
-      "isPlaying": false
+      "keyId": "E",
+      "audioSrc": "./e-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "a",
-      "audioSrc": "a-audio.mkv",
-      "isPlaying": false
+      "keyId": "A",
+      "audioSrc": "./a-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "s",
-      "audioSrc": "s-audio.mkv",
-      "isPlaying": false
+      "keyId": "S",
+      "audioSrc": "./s-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "d",
-      "audioSrc": "d-audio.mkv",
-      "isPlaying": false
+      "keyId": "D",
+      "audioSrc": "./d-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "z",
-      "audioSrc": "z-audio.mkv",
-      "isPlaying": false
+      "keyId": "Z",
+      "audioSrc": "./z-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "x",
-      "audioSrc": "x-audio.mkv",
-      "isPlaying": false
+      "keyId": "X",
+      "audioSrc": "./x-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     },
     {
-      "keyId": "c",
-      "audioSrc": "c-audio.mkv",
-      "isPlaying": false
+      "keyId": "C",
+      "audioSrc": "./c-audio.mkv",
+      "isPlaying": false,
+      "description": "description of"
   
     }
   ]
