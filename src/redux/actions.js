@@ -1,6 +1,6 @@
 import { PLAY, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from './constants';
 
-export const setPlay = (padId) => {
+export const playPad = (padId) => {
   return {
     type: PLAY,
     padId: padId
@@ -23,11 +23,12 @@ export const fetchJsonSuccess = (data) => {
 export const fetchJsonFailure = (error) => {
   return {
     type: FETCH_JSON_FAILURE,
-    payload: error
+    payload: error.message
   }
 }
 
 export const fetchPads = () => {
+  dispatch(fetchJsonRequest());
   return function () {
     fetch('./pads.json', {
       headers: {
@@ -36,7 +37,7 @@ export const fetchPads = () => {
       }
     })
     .then(response => response.json)
-    .then(data => fetchJsonSuccess(data))
-
+    .then(data => dispatch(fetchJsonSuccess(data)))
+    .catch(error => dispatch(fetchJsonFailure(error)))
   }
 }

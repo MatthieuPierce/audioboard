@@ -2,7 +2,7 @@ import { PLAY, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from
 
 const baseState = {
   pads: [],
-  theme: 'light',
+  activePad: '',
   loading: false,
   error: ''
 }
@@ -29,20 +29,19 @@ const rootReducer = (state = baseState, action) => {
         error: action.payload
       }
     case PLAY:
-      action.keyId
       return ({
         ...state,
+        activePad: action.padId,
         pads: state.pads.map(e => {
-          (e.keyId.toUpperCase === action.keyId.toUppercase)
+          (e.padId.toUpperCase === action.padId.toUppercase)
           ? ({
-              keyId: e.keyId,
+              keyId: e.padId,
               audioSrc: e.audioSrc,
-              isPlaying: 'yes'
+              isPlaying: true
             })
           : e;
         }
         ),
-        
       })
     default:
       return state;
