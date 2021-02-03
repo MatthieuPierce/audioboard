@@ -16,8 +16,6 @@
 }
 
 .playing {
- /* border: 2rem solid black; */
- /* filter: hue-rotate(180deg); */
  animation: filter-animation 5s infinite;
 }
 
@@ -25,17 +23,20 @@
   0% {
     filter: hue-rotate(0deg)
             blur(0px)
-            drop-shadow(3px 3px 0px);
+            brightness(1)
+            drop-shadow(0.1rem 0.1rem 0px var(--main-text-color));
   }
   50% {
-    filter: hue-rotate(200deg)
+    filter: hue-rotate(5deg)
             blur(1px)
-            drop-shadow(10px 10px 10px);
+            brightness(1.8)
+            drop-shadow(0.5rem 0.5rem 0.5rem var(--main-text-color));
   }
   100% {
     filter: hue-rotate(0deg)
             blur(0px)
-            drop-shadow(3px 3px 0px);
+            brightness(1)
+            drop-shadow(0.1rem 0.1rem 0px var(--main-text-color));
   }
 
 }

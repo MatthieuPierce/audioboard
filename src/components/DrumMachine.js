@@ -13,7 +13,7 @@ class DrumMachine extends React.Component {
   render(){
     return (
       <div id="drum-machine-container">
-        <div><h2>Pads Below</h2></div>
+        <header><h2>Click or keyboard for hot takes from across the ages</h2></header>
         <div id="drum-machine">
           {/* BUILD OUT .drum-pad PAD COMPONENTS HERE:  
             * 9 clickable drum pad elements
