@@ -53,6 +53,9 @@ class DrumMachine extends React.Component {
             <h2>
               Pads Loaded: {this.props.padsLoaded}
             </h2>
+            <h2>
+              Play Count: {this.props.playCount}
+            </h2>
           </div>
       </div>
 
@@ -70,7 +73,8 @@ const mapStateToProps = state => {
     pads: state.pads,
     loading: state.loading,
     error: state.error,
-    padsLoaded: state.pads.length
+    padsLoaded: state.pads.length,
+    playCount: state.playCount
   }
 }
 

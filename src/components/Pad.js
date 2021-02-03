@@ -24,6 +24,7 @@ class Pad extends React.Component {
     })
     // dispatch playPad action (to inform store/global state)
     playPad(this.props.padId);
+
     // actually play the audio
     this.audioRef.current.play();
     
@@ -32,7 +33,7 @@ class Pad extends React.Component {
   render() {
     return (
       <div 
-        className="drum-pad"
+        className={`drum-pad ${this.state.isPlaying ? "playing" : ""}`}
         onClick={this.handlePlay}
         style={this.props.padStyle}
         >
@@ -42,7 +43,7 @@ class Pad extends React.Component {
           id={this.props.padId}
           preload="auto"
           ref={this.audioRef}
-          src={this.props.audioSrc} 
+          src={process.env.PUBLIC_URL + this.props.audioSrc} 
           >
         </audio>
         <header>
