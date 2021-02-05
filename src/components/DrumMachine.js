@@ -10,7 +10,23 @@ class DrumMachine extends React.Component {
 
   }
 
-
+  padColors = this.props.pads.map(pad => {
+    let min = Math.ceil(0);
+    let max = Math.floor(360);
+    let randomHue = Math.floor(
+      Math.random() * (max - min + 1) + min);
+    let padStyle = {
+      background: 'hsla(' + randomHue +', 65%, 45%, 1)'
+    };
+    return (
+    <Pad 
+      padId={pad.keyId} 
+      audioSrc={pad.audioSrc} 
+      key={pad.keyId} 
+      padStyle={padStyle}
+      />
+  )
+  });
 
   render(){
     return (
@@ -29,23 +45,7 @@ class DrumMachine extends React.Component {
           supply each Pad with their own padId 
           AND supply audioSrc as props
           (alternately, leave off audioSrc, and individual pad picks it up from Pad's individual mapStateToProps access to state.pads) */}
-          {this.props.pads.map(pad => {
-            let min = Math.ceil(0);
-            let max = Math.floor(360);
-            let randomHue = Math.floor(
-              Math.random() * (max - min + 1) + min);
-            let padStyle = {
-              background: 'hsla(' + randomHue +', 65%, 45%, 1)'
-            };
-            return (
-            <Pad 
-              padId={pad.keyId} 
-              audioSrc={pad.audioSrc} 
-              key={pad.keyId} 
-              padStyle={padStyle}
-              />
-          )
-          })}
+          {this.padColors}
           
           <div id="display">
             {this.props.activeDescription}
