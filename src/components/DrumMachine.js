@@ -21,7 +21,7 @@ class DrumMachine extends React.Component {
     return (
     <Pad 
       padId={pad.keyId} 
-      audioSrc={pad.audioSrc} 
+      // audioSrc={pad.audioSrc}
       key={pad.keyId} 
       padStyle={padStyle}
       />

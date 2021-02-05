@@ -23,21 +23,25 @@ export const fetchJsonSuccess = (data) => {
 export const fetchJsonFailure = (error) => {
   return {
     type: FETCH_JSON_FAILURE,
-    payload: error.message
+    payload: error
   }
 }
 
-// export const fetchPads = () => {
-//   dispatch(fetchJsonRequest());
-//   return function () {
-//     fetch('./pads.json', {
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//       }
-//     })
-//     .then(response => response.json)
-//     .then(data => dispatch(fetchJsonSuccess(data)))
-//     .catch(error => dispatch(fetchJsonFailure(error)))
-//   }
-// }
+export const fetchPads = () => {
+  return function(dispatch) {
+    dispatch(fetchJsonRequest());
+    fetch('./pads.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json)
+    .then(data => {
+      console.log(data);
+      dispatch(fetchJsonSuccess(data));
+    })
+    .catch(error => dispatch(fetchJsonFailure(error.message)))
+  }
+}

@@ -98,10 +98,11 @@ class Pad extends React.Component {
 
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     activePad: state.activePad,
     loading: state.loading,
+    audioSrc: state.pads.find(pad => pad.keyId === ownProps.padId).audioSrc
   }
 }
 
