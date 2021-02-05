@@ -10,7 +10,7 @@ const baseState = {
 const tempBaseState = {
   playCount: 0,
   activePad: '',
-  activeDescription: 'starting description',
+  activeDescription: '',
   loading: false,
   error: '',
   pads: [
@@ -101,10 +101,15 @@ const rootReducer = (state = tempBaseState, action) => {
         error: action.payload
       }
     case PLAY:
+      console.log("starting PLAY in rootReducer");
+      // console.log(`prior to PLAY return, reducer thinks this is state.pads.find(pad => pad["keyId"] === action.padId) :: ${state.pads.find(pad => pad.keyId == action.padId)}`)
+      console.log(`state.pads: ${state.pads}`);
+      console.log(`action.padId: ${action.padId}`);
+      console.log(`state.pads.find: ${state.pads.find(pad => pad.keyId === action.padId)}`)
       return ({
         ...state,
         activePad: action.padId,
-        activeDescription: state.pads.find(pad => pad["keyId"] === action.padId).description,
+        activeDescription: state.pads.find(pad => pad["keyId"] === action.padId)["description"],
         playCount: state.playCount + 1,
         pads: state.pads.map(e => {
           if (e.padId === action.padId) {

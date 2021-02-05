@@ -47,10 +47,7 @@ class DrumMachine extends React.Component {
           )
           })}
           
-
-          
           <div id="display">
-            Display Last-Played Description Here: 
             {this.props.activeDescription}
             {/* String describing associated audio clip for currently-triggered pad */}
             {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}

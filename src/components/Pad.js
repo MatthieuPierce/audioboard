@@ -1,6 +1,7 @@
 import React from 'react';
 import { playPad } from '../redux/actions';
 import { connect } from 'react-redux';
+import KeyboardEventHandler from 'react-keyboard-event-handler';
 import './Pad.css'
 
 
@@ -14,51 +15,65 @@ class Pad extends React.Component {
     this.audioRef = React.createRef();
     this.handlePlay = this.handlePlay.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleAudioEnd = this.handleAudioEnd.bind(this);
   }
 
   handlePlay = () => {
-    //click logging
-    console.log(`played padId ${this.props.padId}`)
+    // click console logging
+    // console.log(`played padId ${this.props.padId}`)
 
     //inform local state isPlaying
     this.setState({
       isPlaying: true
     })
     // dispatch playPad action (to inform store/global state)
-    playPad(this.props.padId);
+    this.props.playPad(this.props.padId);
 
     // actually play the audio
     this.audioRef.current.play();
   }
 
-  handleKeyDown = (e) => {
-    console.log(`just keyDowned ${e.key}`);
-    if (e.key.toUpperCase === this.props.padId.toUpperCase) {
-      console.log(`matched with ${this.props.padId}, handleKeyPress going to trigger handlePlay`);
+  handleKeyDown = (key) => {
+    // console.log(`handleKeyDown just received key ${key}`);
+    if (key.toUpperCase === this.props.padId.toUpperCase) {
+      // console.log(`matched with ${this.props.padId}, handleKeyDown going to trigger handlePlay`);
       this.handlePlay();
     }
   }
 
+  handleAudioEnd = () => {
+    this.setState({
+      isPlaying: false
+    })
+  }
+
   render() {
+
+    const { padId } = this.props;
+
     return (
-      <div 
+      <div
         className={`drum-pad ${this.state.isPlaying ? "playing" : ""}`}
         onClick={this.handlePlay}
-        onKeyDown={this.handleKeyDown}
+        // onKeyDown={this.handleKeyDown}
         style={this.props.padStyle}
         tabIndex="0"
-        >
-
+      >
+        <KeyboardEventHandler
+          handleKeys={[padId]}
+          onKeyEvent={(key, e) => this.handleKeyDown(key)}
+        />
         <audio
-          className="clip" 
-          id={this.props.padId}
+          className="clip"
+          id={padId}
           preload="auto"
           ref={this.audioRef}
-          src={process.env.PUBLIC_URL + this.props.audioSrc} 
-          >
+          src={process.env.PUBLIC_URL + this.props.audioSrc}
+          onEnded={this.handleAudioEnd}
+        >
         </audio>
         <header>
-          {this.props.padId}
+          {padId}
         </header>
 
         {/* When I click on a .drum-pad element, the audio clip contained in its child audio element should be triggered */}
@@ -76,12 +91,12 @@ class Pad extends React.Component {
       */}
         {/* <p>I'm playing!</p>
         <p>I'm not playing!</p> */}
-        </div>
+      </div>
     )
 
   }
 
-} 
+}
 
 const mapStateToProps = state => {
   return {
@@ -92,7 +107,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    playPad: () => dispatch(playPad())
+    playPad: (padId) => dispatch(playPad(padId))
   }
 }
 

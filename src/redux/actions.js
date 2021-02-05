@@ -3,7 +3,7 @@ import { PLAY, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from
 export const playPad = (padId) => {
   return {
     type: PLAY,
-    padId: padId
+    "padId": padId
   }
 }
 
