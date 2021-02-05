@@ -10,6 +10,8 @@ class DrumMachine extends React.Component {
 
   }
 
+
+
   render(){
     return (
       <div id="drum-machine-container">
@@ -36,7 +38,12 @@ class DrumMachine extends React.Component {
               background: 'hsla(' + randomHue +', 65%, 45%, 1)'
             };
             return (
-            <Pad padId={pad.keyId} audioSrc={pad.audioSrc} key={pad.keyId} padStyle={padStyle}/>
+            <Pad 
+              padId={pad.keyId} 
+              audioSrc={pad.audioSrc} 
+              key={pad.keyId} 
+              padStyle={padStyle}
+              />
           )
           })}
           

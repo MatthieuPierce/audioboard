@@ -13,11 +13,13 @@ class Pad extends React.Component {
     }
     this.audioRef = React.createRef();
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handlePlay = () => {
     //click logging
-    console.log(`clicked on ${this.props.padId}`)
+    console.log(`played padId ${this.props.padId}`)
+
     //inform local state isPlaying
     this.setState({
       isPlaying: true
@@ -27,15 +29,24 @@ class Pad extends React.Component {
 
     // actually play the audio
     this.audioRef.current.play();
-    
-  } 
+  }
+
+  handleKeyDown = (e) => {
+    console.log(`just keyDowned ${e.key}`);
+    if (e.key.toUpperCase === this.props.padId.toUpperCase) {
+      console.log(`matched with ${this.props.padId}, handleKeyPress going to trigger handlePlay`);
+      this.handlePlay();
+    }
+  }
 
   render() {
     return (
       <div 
         className={`drum-pad ${this.state.isPlaying ? "playing" : ""}`}
         onClick={this.handlePlay}
+        onKeyDown={this.handleKeyDown}
         style={this.props.padStyle}
+        tabIndex="0"
         >
 
         <audio
