@@ -27,8 +27,8 @@ class DrumMachine extends React.Component {
       };
       return (
       <Pad 
-        padId={pad.keyId} 
-        key={pad.keyId} 
+        padId={pad.padId} 
+        key={pad.padId} 
         padStyle={padStyle}
         />
     )
@@ -51,7 +51,13 @@ class DrumMachine extends React.Component {
           (alternately, leave off audioSrc, and individual pad picks it up from Pad's individual mapStateToProps access to state.pads) */}
           {padElements}
 
-          <div id="display">
+          <div id="display"
+            className={
+              (this.props.pads.some(pad => {
+                return pad.isPlaying === true
+              })) && "bg-playing"
+            }
+          >
           {(this.props.activeDescription)
           ? this.props.activeDescription
           : `Click or keyboard for hot takes from across the ages`
@@ -85,8 +91,6 @@ const mapStateToProps = state => {
     pads: state.pads,
     loading: state.loading,
     error: state.error,
-    // padsLoaded: state.pads.length,
-    // playCount: state.playCount
   }
 }
 

@@ -107,7 +107,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     activePad: state.activePad,
     loading: state.loading,
-    audioSrc: state.pads.find(pad => pad.keyId === ownProps.padId).audioSrc
+    audioSrc: state.pads.find(pad => pad.padId === ownProps.padId).audioSrc
   }
 }
 
