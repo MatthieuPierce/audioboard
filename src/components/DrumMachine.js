@@ -6,18 +6,15 @@ import './DrumMachine.css'
 
 
 class DrumMachine extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     this.props.fetchPads();
     // console.log(`pads after componentDidMount:`);
     // console.log(this.props.pads)
   }
-
-
 
   render(){
 
@@ -55,7 +52,9 @@ class DrumMachine extends React.Component {
             className={
               (this.props.pads.some(pad => {
                 return pad.isPlaying === true
-              })) && "bg-playing"
+              })) 
+              ? "bg-playing"
+              : undefined
             }
           >
           {(this.props.activeDescription)

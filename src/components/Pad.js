@@ -57,14 +57,15 @@ class Pad extends React.Component {
 
     return (
       <div
-        className={`drum-pad ${this.state.isPlaying ? "playing" : ""}`}
+        className={`drum-pad ${this.state.isPlaying ? "playing" : undefined}`}
+        id={padId}
         onClick={this.handlePlay}
         // onKeyDown={this.handleKeyDown}
         style={this.props.padStyle}
         tabIndex="0"
       >
         <KeyboardEventHandler
-          handleKeys={[padId]}
+          handleKeys={[padId, `shift+${padId}`, padId.toUpperCase()]}
           onKeyEvent={(key, e) => this.handleKeyDown(key)}
         />
         <audio
