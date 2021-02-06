@@ -1,14 +1,27 @@
+#display {
+  background-color: hsla(0, 45%, 35%, 1);
+  grid-column: 1 / -1;
+  min-height: 10vh; 
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 0 1rem;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
 #drum-machine-container {
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
-  /* justify-content: center; */  
 }
 
 #drum-machine {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.5rem;
   margin: 0 1rem;
 }
 
@@ -22,11 +35,21 @@
   padding-bottom: calc(100% / (var(--aspect-ratio)));
 } */
 
-#display {
-  background-color: hsla(0, 45%, 35%, 1);
-  grid-column: 1 / -1;
-  min-height: 10vh; 
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
+
+
+@media (min-width: 360px) {
+  #display {
+    min-height: 10vh; 
+    padding: 0 1rem;
+    margin: 0.5rem 4rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+  #drum-machine {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* gap: 0.5rem;
+    margin: 0 1rem; */
+  }
+
 }

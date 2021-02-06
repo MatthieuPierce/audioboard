@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Bad Takes Audioboard</h1>
+        <p>Click or keyboard for hot takes from across the ages</p>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
       <DrumMachine />

@@ -1,12 +1,13 @@
 .drum-pad {
   border-radius: 0.5rem;
   box-sizing: border-box;
-  padding: 50px;
-  min-height: 100px;
+  padding: 10px;
+  min-height: 20px;
   background-color: var(--secondary-bg-color);
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .drum-pad:focus {
@@ -15,18 +16,17 @@
 
 .drum-pad header {
   font-size: 3rem;
-
 }
 
 .playing {
- animation: filter-animation 5s infinite;
+ animation: 4s linear filter-animation infinite;
 }
 
 @keyframes filter-animation {
   0% {
     filter: hue-rotate(0deg)
             blur(0px)
-            brightness(1)
+            brightness(1.1)
             drop-shadow(0.1rem 0.1rem 0px var(--main-text-color));
   }
   50% {
@@ -38,8 +38,20 @@
   100% {
     filter: hue-rotate(0deg)
             blur(0px)
-            brightness(1)
+            brightness(1.1)
             drop-shadow(0.1rem 0.1rem 0px var(--main-text-color));
+  }
+
+}
+
+@media (min-width: 360px) {
+  .drum-pad {
+    padding: 30px;
+    min-height: 100px;
+  }
+
+  .drum-pad header {
+    font-size: 4rem;
   }
 
 }

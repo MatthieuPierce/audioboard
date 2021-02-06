@@ -1,18 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,900;1,400&display=swap');
+
 body {
   --main-text-color: #EEEEEE;
-  --main-bg-color: hsla(212, 29%, 65%, 1);
+  --main-bg-color: hsla(212, 29%, 15%, 1);
   --secondary-bg-color: hsla(290, 50%, 35%, 0.75);
-
-
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Source Code Pro', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
