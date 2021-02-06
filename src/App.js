@@ -1,6 +1,6 @@
 import './App.css';
 import DrumMachine from './components/DrumMachine';
-import ReactFCCtest from 'react-fcctest';
+// import ReactFCCtest from 'react-fcctest';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         {/* <p>Click or keyboard for hot takes from across the ages</p> */}
       </header>
       <DrumMachine />
-      <ReactFCCtest />
+      {/* <ReactFCCtest /> */}
     </div>
 
   );
