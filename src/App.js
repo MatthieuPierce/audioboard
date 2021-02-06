@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import DrumMachine from './components/DrumMachine'
+import DrumMachine from './components/DrumMachine';
+import ReactFCCtest from 'react-fcctest';
+
 
 function App() {
   return (
@@ -8,9 +10,9 @@ function App() {
       <header className="App-header">
         <h1>Bad Takes Audioboard</h1>
         <p>Click or keyboard for hot takes from across the ages</p>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
       <DrumMachine />
+      {/* <ReactFCCtest /> */}
     </div>
 
   );

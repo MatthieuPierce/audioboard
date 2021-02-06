@@ -69,6 +69,7 @@ class Pad extends React.Component {
           preload="auto"
           ref={this.audioRef}
           src={process.env.PUBLIC_URL + this.props.audioSrc}
+          // src={this.props.audioSrc}
           onEnded={this.handleAudioEnd}
         >
         </audio>
