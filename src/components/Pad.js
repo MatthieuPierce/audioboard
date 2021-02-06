@@ -1,7 +1,7 @@
 import React from 'react';
 import { playPad, stopPad } from '../redux/actions';
 import { connect } from 'react-redux';
-import KeyboardEventHandler from 'react-keyboard-event-handler';
+// import KeyboardEventHandler from 'react-keyboard-event-handler';
 import './Pad.css'
 
 
@@ -16,6 +16,13 @@ class Pad extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleAudioEnd = this.handleAudioEnd.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+  componentWillMount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   handlePlay = () => {
@@ -33,10 +40,10 @@ class Pad extends React.Component {
     this.audioRef.current.play();
   }
 
-  handleKeyDown = (key) => {
-    // console.log(`handleKeyDown just received key ${key}`);
-    if (key.toUpperCase === this.props.padId.toUpperCase) {
-      // console.log(`matched with ${this.props.padId}, handleKeyDown going to trigger handlePlay`);
+  handleKeyDown = (e) => {
+
+    //uses event.key with document eventHandler, switch back to simply key if KeyboardEventHandler component is used instead
+    if (e.key.toUpperCase() === this.props.padId.toUpperCase()) {
       this.handlePlay();
     }
   }
@@ -60,14 +67,14 @@ class Pad extends React.Component {
         className={`drum-pad ${this.state.isPlaying ? "playing" : undefined}`}
         id={padId}
         onClick={this.handlePlay}
-        // onKeyDown={this.handleKeyDown}
+        onKeyDown={this.handleKeyDown}
         style={this.props.padStyle}
         tabIndex="0"
       >
-        <KeyboardEventHandler
+        {/* <KeyboardEventHandler
           handleKeys={[padId, `shift+${padId}`, padId.toUpperCase()]}
           onKeyEvent={(key, e) => this.handleKeyDown(key)}
-        />
+        /> */}
         <audio
           className="clip"
           id={padId}
@@ -76,6 +83,8 @@ class Pad extends React.Component {
           src={process.env.PUBLIC_URL + this.props.audioSrc}
           // src={this.props.audioSrc}
           onEnded={this.handleAudioEnd}
+          onPause={this.handleAudioEnd}
+          tabIndex="0"
         >
         </audio>
         <header>
