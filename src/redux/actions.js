@@ -1,9 +1,16 @@
-import { PLAY, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from './constants';
+import { PLAY, STOP, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from './constants';
 
 export const playPad = (padId) => {
   return {
     type: PLAY,
     "padId": padId
+  }
+}
+
+export const stopPad = (padId) => {
+  return {
+    type: STOP,
+    padId: padId
   }
 }
 

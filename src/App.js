@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Bad Takes Audioboard</h1>
-        <p>Click or keyboard for hot takes from across the ages</p>
+        {/* <p>Click or keyboard for hot takes from across the ages</p> */}
       </header>
       <DrumMachine />
       {/* <ReactFCCtest /> */}

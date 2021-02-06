@@ -6,7 +6,6 @@
   background-color: var(--secondary-bg-color);
   display: flex;
   flex-flow: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -19,10 +18,10 @@
 }
 
 .playing {
- animation: 4s linear filter-animation infinite;
+ animation: 4s linear glow-pulse-animation infinite;
 }
 
-@keyframes filter-animation {
+@keyframes glow-pulse-animation {
   0% {
     filter: hue-rotate(0deg)
             blur(0px)

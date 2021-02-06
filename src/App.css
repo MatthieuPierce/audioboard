@@ -1,17 +1,11 @@
 .App {
   text-align: center;
   background-color: var(--main-bg-color);
-  /* background-image: url('img-noise-500x500.png'); */
   color: var(--main-text-color);
   margin: 0;
   padding: 0;
   height: 100%;
   min-height: 100vh;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 .App-header {
@@ -27,13 +21,5 @@
 }
 
 header.App-header  {
-  padding: 0.5rem;
-}
-
-p {
-  margin: 0 1rem;
-}
-
-.App-link {
-  color: #61dafb;
+  padding: 0.5rem 0 0 0;
 }

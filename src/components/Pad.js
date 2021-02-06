@@ -1,5 +1,5 @@
 import React from 'react';
-import { playPad } from '../redux/actions';
+import { playPad, stopPad } from '../redux/actions';
 import { connect } from 'react-redux';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import './Pad.css'
@@ -42,9 +42,13 @@ class Pad extends React.Component {
   }
 
   handleAudioEnd = () => {
+    //inform local state isPlaying to false
     this.setState({
       isPlaying: false
     })
+    // dispatch stopPad action (to inform store/global state)
+    this.props.stopPad(this.props.padId);
+
   }
 
   render() {
@@ -109,7 +113,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    playPad: (padId) => dispatch(playPad(padId))
+    playPad: (padId) => dispatch(playPad(padId)),
+    stopPad: (padId) => dispatch(stopPad(padId))
   }
 }
 

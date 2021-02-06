@@ -28,7 +28,6 @@ class DrumMachine extends React.Component {
       return (
       <Pad 
         padId={pad.keyId} 
-        // audioSrc={pad.audioSrc}
         key={pad.keyId} 
         padStyle={padStyle}
         />
@@ -51,12 +50,15 @@ class DrumMachine extends React.Component {
           AND supply audioSrc as props
           (alternately, leave off audioSrc, and individual pad picks it up from Pad's individual mapStateToProps access to state.pads) */}
           {padElements}
-          
+
           <div id="display">
-            {this.props.activeDescription}
-            {/* String describing associated audio clip for currently-triggered pad */}
-            {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
-          </div>
+          {(this.props.activeDescription)
+          ? this.props.activeDescription
+          : `Click or keyboard for hot takes from across the ages`
+        }
+          {/* String describing associated audio clip for currently-triggered pad */}
+          {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
+        </div>
         </div>        
         
         {/* <div>

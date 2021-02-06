@@ -1,4 +1,4 @@
-import { PLAY, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from './constants';
+import { PLAY, STOP, FETCH_JSON_REQUEST, FETCH_JSON_SUCCESS, FETCH_JSON_FAILURE } from './constants';
 
 const baseState = {
   // playCount: 0,
@@ -99,9 +99,12 @@ const rootReducer = (state = baseState, action) => {
           let min = Math.ceil(0);
           let max = Math.floor(360);
           let randomHue = Math.floor(Math.random() * (max - min + 1) + min);
+
+          // will also insert isPlaying: false state for all Pads
           return {
             ...pad,
-            padHue: randomHue
+            padHue: randomHue,
+            isPlaying: false
           }
         }),
         loading: false,
@@ -124,7 +127,6 @@ const rootReducer = (state = baseState, action) => {
         ...state,
         activePad: action.padId,
         activeDescription: state.pads.find(pad => pad["keyId"] === action.padId)["description"],
-        // playCount: state.playCount + 1,
         pads: state.pads.map(e => {
           if (e.padId === action.padId) {
             return {
@@ -137,6 +139,21 @@ const rootReducer = (state = baseState, action) => {
         }
         )
       })
+    case STOP: 
+     return ({
+       ...state,
+       pads: state.pads.map(e => {
+        if (e.padId === action.padId) {
+          return {
+            ...e,
+            isPlaying: false
+          }
+        } else {
+          return e;
+        }
+      }
+      )
+     })
     default:
       return state;
   }
