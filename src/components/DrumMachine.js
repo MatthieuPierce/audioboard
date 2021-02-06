@@ -1,6 +1,7 @@
 import React from 'react';
 import Pad from './Pad'
 import { connect } from 'react-redux';
+import { fetchPads } from '../redux/actions'
 import './DrumMachine.css'
 
 
@@ -10,28 +11,36 @@ class DrumMachine extends React.Component {
 
   }
 
-  padColors = this.props.pads.map(pad => {
-    let min = Math.ceil(0);
-    let max = Math.floor(360);
-    let randomHue = Math.floor(
-      Math.random() * (max - min + 1) + min);
-    let padStyle = {
-      background: 'hsla(' + randomHue +', 65%, 45%, 1)'
-    };
-    return (
-    <Pad 
-      padId={pad.keyId} 
-      // audioSrc={pad.audioSrc}
-      key={pad.keyId} 
-      padStyle={padStyle}
-      />
-  )
-  });
+  componentDidMount() {
+    this.props.fetchPads();
+    // console.log(`pads after componentDidMount:`);
+    // console.log(this.props.pads)
+  }
+
+
 
   render(){
+
+    const padElements = this.props.pads.map(pad => {
+      let padStyle = {
+        background: 'hsla(' + pad.padHue +', 65%, 45%, 1)'
+      };
+      return (
+      <Pad 
+        padId={pad.keyId} 
+        // audioSrc={pad.audioSrc}
+        key={pad.keyId} 
+        padStyle={padStyle}
+        />
+    )
+    });
+
     return (
       <div id="drum-machine-container">
         <header><h2>Click or keyboard for hot takes from across the ages</h2></header>
+
+        <div><h2>Props error: {this.props.error}</h2></div>
+
         <div id="drum-machine">
           {/* BUILD OUT .drum-pad PAD COMPONENTS HERE:  
             * 9 clickable drum pad elements
@@ -45,22 +54,23 @@ class DrumMachine extends React.Component {
           supply each Pad with their own padId 
           AND supply audioSrc as props
           (alternately, leave off audioSrc, and individual pad picks it up from Pad's individual mapStateToProps access to state.pads) */}
-          {this.padColors}
+          {padElements}
           
           <div id="display">
             {this.props.activeDescription}
             {/* String describing associated audio clip for currently-triggered pad */}
             {/* When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
           </div>
-        </div>
-        <div>
+        </div>        
+        
+        {/* <div>
             <h2>
               Pads Loaded: {this.props.padsLoaded}
             </h2>
             <h2>
               Play Count: {this.props.playCount}
             </h2>
-          </div>
+          </div> */}
       </div>
 
     )
@@ -77,9 +87,15 @@ const mapStateToProps = state => {
     pads: state.pads,
     loading: state.loading,
     error: state.error,
-    padsLoaded: state.pads.length,
-    playCount: state.playCount
+    // padsLoaded: state.pads.length,
+    // playCount: state.playCount
   }
 }
 
-export default connect(mapStateToProps)(DrumMachine);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPads: () => dispatch(fetchPads())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DrumMachine);

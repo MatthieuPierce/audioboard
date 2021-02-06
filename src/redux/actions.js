@@ -28,20 +28,29 @@ export const fetchJsonFailure = (error) => {
 }
 
 export const fetchPads = () => {
+  const handleErrors = response => {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response
+  }
   return function(dispatch) {
-    dispatch(fetchJsonRequest());
-    fetch('./pads.json', {
-      method: 'GET',
+    dispatch(fetchJsonRequest);
+    fetch('pads.json', {
+      // method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
     })
-    .then(response => response.json)
+    .then(handleErrors)
+    .then(response => response.json())
     .then(data => {
-      console.log(data);
+      // console.log(`data in fetchPads prior to dispatch:`);
+      // console.log(data);
       dispatch(fetchJsonSuccess(data));
+      return data;
     })
-    .catch(error => dispatch(fetchJsonFailure(error.message)))
+    .catch(error => dispatch(fetchJsonFailure(error)))
   }
 }
